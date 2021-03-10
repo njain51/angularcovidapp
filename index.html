@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=20, initial-scale=1.0">
+    <title>Home page</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js" ></script>
+    <script src="./js/myscript.js">
+    </script>
+
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+        <div class="jumbotron py-1">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-3"> COVID-19 is caused by a coronavirus called SARS-CoV-2. Older adults and people who have severe underlying medical conditions like heart or lung disease or diabetes seem to be at higher risk for developing more serious complications from COVID-19 illness.
+
+
+             While children have been less affected by COVID-19 compared to adults, children can be infected with the virus that causes COVID-19 and some children develop severe illness. Children with underlying medical conditions are at increased risk for severe illness compared to children without underlying medical conditions. Current evidence on which underlying medical conditions in children are associated with increased risk is limited. Children with the following conditions might be at increased risk for severe illness: obesity, medical complexity, severe genetic disorders, severe neurologic disorders, inherited metabolic disorders, sickle cell disease, congenital (since birth) heart disease, diabetes, chronic kidney disease, asthma and other chronic lung disease, and immunosuppression due to malignancy or immune-weakening medications.
+            </p>
+            
+           <!-- Adding API data here-->
+          
+             <div class="row text-center">
+                 <div class="col-md-4">
+                     <div class="card bg-warning text-white">
+                         <h3>Confirmed Cases</h3>
+                         <h3>{{all_data.confirmed.value}}</h3>
+                     </div>
+ 
+                 </div>
+                 <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <h3>Recovered Cases</h3>
+                        <h3>{{all_data.recovered.value}}</h3>
+                    </div>
+
+                 </div>
+                 <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <h3>Death Cases</h3>
+                        <h3>{{all_data.deaths.value}}</h3>
+                    </div>
+
+                 </div>
+             </div>
+
+           <!-- End of API data -->
+
+           <input type="text"
+            class="form-control mt-4"
+            placeholder="enter country here"
+            ng-model="c"
+            ng-change="get_c_data()"
+            />
+        
+            {{c}}
+
+          <!-- Adding C data here-->
+          <div class="container-fluid" ng-if="c_data"> 
+          <h1 class="text-center mt-4 text-uppercase">{{c}} status</h1>
+           
+          <div class="row text-center mt-4" ng-if="c_data">
+           <div class="col-md-4">
+               <div class="card bg-warning text-white">
+                   <h3>Confirmed Cases</h3>
+                   <h3>{{c_data.confirmed.value}}</h3>
+               </div>
+
+           </div>
+           <div class="col-md-4">
+              <div class="card bg-success text-white">
+                  <h3>Recovered Cases</h3>
+                  <h3>{{c_data.recovered.value}}</h3>
+              </div>
+
+           </div>
+           <div class="col-md-4">
+              <div class="card bg-danger text-white">
+                  <h3>Death Cases</h3>
+                  <h3>{{c_data.deaths.value}}</h3>
+              </div>
+
+           </div>
+       </div>
+
+    </div>
+
+     <!-- End of C data -->
+
+
+
+        </div>
+
+    </div>
+
+
+
+            
+          
+
+
+
+ 
+    
+
+
+</body>
+
+</html>
